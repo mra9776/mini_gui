@@ -1,0 +1,34 @@
+struct PERSONS {
+	char name[100];
+	char address[200];
+	char tel[20];
+	int id;
+
+	double balance;
+
+}
+
+//pat_FILENAME dbp
+//pat_struct
+struct PERSONS {
+	char name[100];
+	char address[200];
+	char tel[20];
+	int id;
+
+	double balance;
+
+};
+//pat_structNAme PERSONS
+
+
+struct COSTS {
+	int id;
+	double balance;
+	int idPerson;
+	DATE d;
+	char desc[100];
+	int class;
+
+
+};

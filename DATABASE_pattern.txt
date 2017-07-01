@@ -1,0 +1,58 @@
+#include "files.h"
+#include "utility.h"
+
+#include <string.h>
+
+FILE *pat_FILENAME;
+
+struct pat_struct
+
+typedef struct pat_structNAme pat_typeName;
+
+int initpat_typeName() {
+
+}
+
+pat_typeName * newpat_typeName(char *name, char* address, char *tel, int *id) {
+
+	//todo: Check Arguments;
+
+	pat_typeName *p = (pat_typeName *) malloc(sizeof(pat_typeName));
+	strcpy_s(p->address , 200, address);
+	strcpy_s(p->name, 100 ,  name);
+	p->id = id;
+	p->balance = 0.00;
+
+	strcpy_s(p->tel , 20,  tel);
+
+	return p;
+
+}
+
+int pat_FILENAMEinit() {
+	pat_FILENAME = dbopen("pat_typeName.db", INIT_FIRST);
+}
+int pat_FILENAMEopen() {
+	pat_FILENAME = dbopen("persons.db");
+
+}
+
+int pat_FILENAMEadd(pat_typeName *p) {
+	
+	dbadd(pat_FILENAME, p, sizeof(pat_typeName));
+
+	return 0;
+
+}
+
+int pat_FILENAMEclose() {
+	dbclose(pat_FILENAME);
+
+}
+
+pat_typeName *pat_FILENAMEfind(int id) {
+	pat_typeName *p = (pat_typeName *)dbfind(pat_FILENAME, sizeof(pat_typeName), id);
+	return p;
+
+
+}
